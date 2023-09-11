@@ -60,11 +60,15 @@ class _ChatRoomState extends State<chat_room> {
   late List<dynamic> chatData;
 
   void send_message(String message) {
+    DateTime now = DateTime.now();
+    int hour = now.hour;
+    String minute = now.minute.toString().padLeft(2, '0');
+    String time = "$hour:$minute";
     // Buat objek pesan baru
     Map<String, dynamic> newMessage = {
       "sender": user_id,
       "date": DateTime.now().toLocal().toString().split(' ')[0],
-      "time": DateTime.now().toLocal().toString().split(' ')[1].split('.')[0],
+      "time": time,
       "message": message,
       "deleted": false
     };
@@ -235,30 +239,31 @@ class _ChatRoomState extends State<chat_room> {
           children: [
             IconButton(onPressed: () {}, icon: Icon(Icons.emoji_emotions)),
             Expanded(
-              child: TextField(
-                controller: _messageController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(
-                        color:
-                            Colors.grey[200]!), // Warna border saat tidak aktif
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(
-                        color:
-                            Warna.TextBold), // Warna border saat aktif (focus)
-                  ),
-                  filled: true,
-                  fillColor: Warna.BG,
-                  hintText: 'Ketik pesan...',
-                  labelStyle: TextStyle(
-                    color: Warna.Primary, // Warna label saat aktif (focus)
-                  ),
+                child: TextField(
+              controller: _messageController,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 15), // Atur padding sesuai keinginan
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: BorderSide(
+                      color:
+                          Colors.grey[200]!), // Warna border saat tidak aktif
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: BorderSide(
+                      color: Warna.TextBold), // Warna border saat aktif (focus)
+                ),
+                filled: true,
+                fillColor: Warna.BG,
+                hintText: 'Ketik pesan...',
+                labelStyle: TextStyle(
+                  color: Warna.Primary, // Warna label saat aktif (focus)
                 ),
               ),
-            ),
+            )),
             IconButton(onPressed: () {}, icon: Icon(Icons.attachment)),
             IconButton(onPressed: () {}, icon: Icon(Icons.camera_alt)),
             Container(
