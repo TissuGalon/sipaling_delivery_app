@@ -1,0 +1,23 @@
+[
+    {
+        "idroom" : 123,
+        "iduser1" : "1",
+        "iduser2" : "2",
+        "chat" : [
+            {
+                "sender" : "1",
+                "date" : "09/09/2023",
+                "time" : "13:13",
+                "message" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nihil consequatur eveniet facilis dolores nam aut, vel atque cumque, inventore ullam quod, quam blanditiis? Similique magnam voluptatem veritatis fuga aliquam!",
+                "deleted" : false
+            },
+            {
+                "sender" : "2",
+                "date" : "09/09/2023",
+                "time" : "13:29",
+                "message" : "awoakwoakwokaowkowa",
+                "deleted" : false
+            }
+        ]
+    }
+]
